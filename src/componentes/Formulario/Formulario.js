@@ -5,15 +5,6 @@ import Botao from "../Botao";
 import {useState} from "react";
 
 export const Formulario = (props) =>{
-    const times = [
-        'Programação'
-        ,'Front-End'
-        ,'Data Science'
-        ,'Devops'
-        ,'UX e Desing'
-        ,'Mobile'
-        ,'Inovação e Gestão'
-    ]
 
     const [nome,setNome] = useState('')
     const [cargo,setCargo] = useState('')
@@ -28,6 +19,10 @@ export const Formulario = (props) =>{
             ,imagem
             ,time
         })
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
     }
     return(
         <section className={"formulario"}>
@@ -55,7 +50,7 @@ export const Formulario = (props) =>{
                 />
                 <CampoSelect
                     label={'Time'}
-                    itens={times}
+                    itens={props.nomeDosTimes}
                     valor={time}
                     setValor={valor => setTime(valor)}
                 />
