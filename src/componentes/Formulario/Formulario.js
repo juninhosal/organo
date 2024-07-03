@@ -4,8 +4,8 @@ import {CampoSelect} from "../CampoSelect/CampoSelect";
 import Botao from "../Botao";
 import {useState} from "react";
 
-export const Formulario = (props) =>{
-
+export const Formulario = ({nomeDosTimes,colaboradorCadastrado}) =>{
+console.log(nomeDosTimes);
     const [nome,setNome] = useState('')
     const [cargo,setCargo] = useState('')
     const [imagem,setImagem] = useState('')
@@ -13,7 +13,7 @@ export const Formulario = (props) =>{
 
     const salvar = (evento) => {
         evento.preventDefault()
-        props.colaboradorCadastrado({
+        colaboradorCadastrado({
              nome
             ,cargo
             ,imagem
@@ -49,14 +49,13 @@ export const Formulario = (props) =>{
                     setValor={valor => setImagem(valor)}
                 />
                 <CampoSelect
-                    label={'Time'}
-                    itens={props.nomeDosTimes}
+                    obrigatorio={true}
+                    label='Time'
+                    itens={nomeDosTimes}
                     valor={time}
                     setValor={valor => setTime(valor)}
                 />
-                <Botao>
-                    Criar Card
-                </Botao>
+                <Botao text='Criar Card'/>
             </form>
         </section>
     )

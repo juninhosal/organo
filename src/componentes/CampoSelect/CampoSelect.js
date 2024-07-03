@@ -1,12 +1,15 @@
 import './CampoSelect.css'
 
-export const CampoSelect = (props) => {
+export const CampoSelect = ({label, itens,  valor, setValor, obrigatorio = false}) => {
     return (
         <div className={'campo-select'}>
-            <label>{props.label}</label>
-            <select onChange={evento => props.setValor(evento.target.value)} value={props.valor}>
+            <label>{label}</label>
+            <select required={obrigatorio}
+                    value={valor}
+                    onChange={evento => setValor(evento.target.value)}
+                    value={valor}>
                <option value="">Selecione um time</option>
-                {props.itens.map(item => <option key={item}>{item}</option>)}
+                {itens.map(item => <option key={item}>{item}</option>)}
             </select>
         </div>
     )
