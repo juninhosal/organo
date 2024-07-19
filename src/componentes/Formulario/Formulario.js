@@ -1,9 +1,9 @@
 import './Formulario.css';
 import Campo from "../Campo";
 import {CampoSelect} from "../CampoSelect/CampoSelect";
-import Botao from "../Botao";
 import {useState} from "react";
 import { v4 as uuidv4 } from 'uuid';
+import {Botao} from "../Botao";
 
 export const Formulario = ({nomeDosTimes,colaboradorCadastrado, cadastrarTime}) =>{
     const [nome,setNome] = useState('')
@@ -61,7 +61,9 @@ export const Formulario = ({nomeDosTimes,colaboradorCadastrado, cadastrarTime}) 
                     valor={time}
                     setValor={valor => setTime(valor)}
                 />
-                <Botao text='Criar Card'/>
+                <Botao>
+                    Criar Card
+                </Botao>
             </form>
             <form onSubmit={(evento) => {
                 evento.preventDefault()
@@ -83,7 +85,9 @@ export const Formulario = ({nomeDosTimes,colaboradorCadastrado, cadastrarTime}) 
                     valor={corTime}
                     setValor={valor => setcorTime(valor)}
                 />
-                <Botao text='Criar um novo time'/>
+                <Botao>
+                    Criar um novo time
+                </Botao>
             </form>
         </section>
     )

@@ -1,9 +1,9 @@
-import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import {useContext, useState} from "react";
 import Time from "./componentes/Time";
 import Footer from "./componentes/Footer";
 import { v4 as uuidv4 } from 'uuid';
+import {Banner} from "./componentes/Banner";
 
 function App() {
 
@@ -77,7 +77,9 @@ function App() {
 
   return (
     <div className="App">
-        <Banner/>
+        <Banner enderecoImagem={'/imagens/banner.png'}
+                textoAlternativo={'O banner principal da página do Organo'}
+        />
         <Formulario
             cadastrarTime={cadastrarTime}
             nomeDosTimes={times.map(time => time.nome)}
