@@ -1,1 +1,1 @@
-https://organo-alura-sigma-seven.vercel.app/
+https://organo-rosy-zeta.vercel.app/
