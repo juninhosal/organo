@@ -1,9 +1,9 @@
 import './Formulario.css';
-import Campo from "../Campo";
 import {CampoSelect} from "../CampoSelect/CampoSelect";
 import {useState} from "react";
 import { v4 as uuidv4 } from 'uuid';
 import {Botao} from "../Botao";
+import {Campo} from "../Campo/Campo";
 
 export const Formulario = ({nomeDosTimes,colaboradorCadastrado, cadastrarTime}) =>{
     const [nome,setNome] = useState('')
