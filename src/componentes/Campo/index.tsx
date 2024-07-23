@@ -6,8 +6,8 @@ interface CampoProps {
     placeholder: string;
     valor: string;
     setValor: (valor: string) => void;
-    obrigatorio: boolean;
-    type: string
+    obrigatorio?: boolean;
+    type?: string
 }
 export const Campo = (
     {

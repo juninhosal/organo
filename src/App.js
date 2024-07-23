@@ -1,9 +1,9 @@
-import Formulario from "./componentes/Formulario";
+import {Formulario} from "./componentes/Formulario";
 import {useContext, useState} from "react";
-import Time from "./componentes/Time";
 import Footer from "./componentes/Footer";
 import { v4 as uuidv4 } from 'uuid';
 import {Banner} from "./componentes/Banner";
+import {Time} from "./componentes/Time";
 
 function App() {
 

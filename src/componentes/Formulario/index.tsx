@@ -1,11 +1,23 @@
 import './Formulario.css';
-import {CampoSelect} from "../CampoSelect/CampoSelect";
-import {useState} from "react";
-import { v4 as uuidv4 } from 'uuid';
+import React, {useState} from "react";
+import { v4 as uuidv4 } from "uuid";
 import {Botao} from "../Botao";
-import {Campo} from "../Campo/Campo";
+import {Campo} from "../Campo";
+import {CampoSelect} from "../CampoSelect";
+import {IColaborador} from "../../compartilhado/interfaces/IColaborador";
 
-export const Formulario = ({nomeDosTimes,colaboradorCadastrado, cadastrarTime}) =>{
+interface FormularioProps {
+    nomeDosTimes: string[];
+    colaboradorCadastrado: (colaborador: IColaborador) => void;
+    cadastrarTime: (time: { nome: string; cor: string }) => void;
+}
+
+export const Formulario = (
+    {
+        nomeDosTimes,
+        colaboradorCadastrado,
+        cadastrarTime
+    }:FormularioProps) =>{
     const [nome,setNome] = useState('')
     const [cargo,setCargo] = useState('')
     const [imagem,setImagem] = useState('')
@@ -15,7 +27,7 @@ export const Formulario = ({nomeDosTimes,colaboradorCadastrado, cadastrarTime}) 
     const id = uuidv4();
     const favorito = false;
 
-    const salvar = (evento) => {
+    const salvar = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
         colaboradorCadastrado({
              nome
@@ -67,7 +79,7 @@ export const Formulario = ({nomeDosTimes,colaboradorCadastrado, cadastrarTime}) 
             </form>
             <form onSubmit={(evento) => {
                 evento.preventDefault()
-                cadastrarTime({nome: nomeTime, cor: corTime})
+                cadastrarTime({ nome: nomeTime, cor: corTime })
             }}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
                 <Campo
